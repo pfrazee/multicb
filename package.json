@@ -2,11 +2,11 @@
   "name": "multicb",
   "version": "0.0.1",
   "description": "Simple way to aggregate multiple node-style callbacks",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "deep-equal": "^0.2.1",
-    "tape": "~2.12.3"
+    "tape": "~2.12.3",
+    "interleavings": "~0.3.0"
   },
   "scripts": {
     "test": "set -e; for t in test/*.js; do node $t; done"

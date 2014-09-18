@@ -1,18 +1,27 @@
 
 
 module.exports = function() {
-  var n = 0, m = 0, _cb, results = [];
+  var n = 0, m = 0, _cb, results = [], _err;
 
   return function(cb) {
     if (cb) {
-      _cb = cb
       results.length = m
+
+      if(_err) {
+        var err = _err; _err = null
+        return cb(err)
+      }
+      if(n == m)
+        return cb(null, results)
+
+      _cb = cb
       return
     }
 
     var i = m++
     return function (err) {
       if (err) {
+        _err = err
         n = -1 // stop
         if (_cb) _cb(err)
       } else {
