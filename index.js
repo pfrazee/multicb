@@ -7,6 +7,10 @@ module.exports = function() {
     if (cb) {
       _cb = cb
       results.length = m
+      if(n == m) {
+        _cb = null
+        cb(null, results)
+      }
       return
     }
 
