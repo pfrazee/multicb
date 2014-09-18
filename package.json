@@ -1,6 +1,6 @@
 {
   "name": "multicb",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple way to aggregate multiple node-style callbacks",
   "dependencies": {},
   "devDependencies": {
