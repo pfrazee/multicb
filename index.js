@@ -1,7 +1,6 @@
-
-
-module.exports = function() {
+module.exports = function(allopts) {
   var n = 0, m = 0, _cb, results = [], _err;
+  function o (k, d) { return allopts && allopts[k] !== void 0 ? allopts[k] : d }
 
   return function(cb) {
     if (cb) {
@@ -26,7 +25,10 @@ module.exports = function() {
         if (_cb) _cb(err)
       } else {
         n++
-        results[i] = Array.prototype.slice.call(arguments)
+        if (o('pluck'))
+          results[i] = arguments[o('pluck')]
+        else
+          results[i] = Array.prototype.slice.call(arguments)
         if (n === m && _cb)
           _cb(null, results)
       }
