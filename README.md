@@ -38,4 +38,17 @@ done(function(err, results) {
   ]
   */
 })
+
+// spread argument
+
+var done = multicb({ pluck: 1, spread: true })
+doAsync(done())
+doAsync(done())
+doAsync(done())
+done(function(err, a, b, c) {
+  console.log(err) // => undefined
+  console.log(a) // => 'foo'
+  console.log(b) // => 'bar'
+  console.log(c) // => 'baz'
+})
 ```

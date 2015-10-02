@@ -10,8 +10,12 @@ module.exports = function(allopts) {
         var err = _err; _err = null
         return cb(err)
       }
-      if(n == m)
+      if(n == m) {
+        if (o('spread'))
+          return cb.apply(null, [null].concat(results))
+        else
         return cb(null, results)
+      }
 
       _cb = cb
       return
@@ -29,8 +33,12 @@ module.exports = function(allopts) {
           results[i] = arguments[o('pluck')]
         else
           results[i] = Array.prototype.slice.call(arguments)
-        if (n === m && _cb)
-          _cb(null, results)
+        if (n === m && _cb) {
+          if (o('spread'))
+            _cb.apply(null, [null].concat(results))
+          else
+            _cb(null, results)
+        }
       }
     }
   }
