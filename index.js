@@ -24,6 +24,7 @@ module.exports = function(allopts) {
     var i = m++
     return function (err) {
       if (err) {
+        if (_err) return
         _err = err
         n = -1 // stop
         if (_cb) _cb(err)

@@ -4,8 +4,6 @@
   "description": "Simple way to aggregate multiple node-style callbacks",
   "dependencies": {},
   "devDependencies": {
-    "deep-equal": "^0.2.1",
-    "tape": "~2.12.3",
     "interleavings": "~0.3.0"
   },
   "scripts": {

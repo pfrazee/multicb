@@ -1,7 +1,5 @@
 'use strict'
-var equal = require('deep-equal');
 var multicb = require('../')
-
 var t = require('assert')
 
 require('interleavings').test(function (isAsync) {
@@ -24,6 +22,3 @@ require('interleavings').test(function (isAsync) {
   })
 
 })
-
-//if(!module.parent)
-  //module.exports({ })
